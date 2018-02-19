@@ -25,12 +25,12 @@ for i = 1:length(faxes)
     faxes(i).YLabel.Interpreter = 'latex';
     faxes(i).Title.Interpreter = 'latex';
     grid on;
-    cols = ["black","red","green","blue"];
+    cols = ["black","red","blue","orange"];
     for j = 1:length(faxes(i).Children)
         temp = faxes(i).Children(j);
         switch class(temp)
             case  'matlab.graphics.chart.primitive.Line'
-                temp.Color = char(cols(1));
+                temp.Color = char(cols(j));
                 temp.LineWidth = 1.2;
             case 'matlab.graphics.chart.primitive.Histogram'
                 h=faxes(i).Children(j);
