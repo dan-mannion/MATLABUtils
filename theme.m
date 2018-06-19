@@ -1,4 +1,6 @@
 function theme(fh)
+FONT='Trebuchet';
+INTERPRETER='tex';
 faxes = [];
 flegends = [];
 ftexts = [];
@@ -19,11 +21,12 @@ for i = 1:length(faxes)
     %Font sizes
     faxes(i).FontSize = 13;
     % faxes.FontWeight = 'bold';
-    faxes(i).FontName = 'Book Antiqua';
+
     faxes(i).Title.FontSize = 18;
-    faxes(i).XLabel.Interpreter = 'latex';
-    faxes(i).YLabel.Interpreter = 'latex';
-    faxes(i).Title.Interpreter = 'latex';
+    faxes(i).XLabel.Interpreter = INTERPRETER;
+    faxes(i).YLabel.Interpreter = INTERPRETER;
+    faxes(i).Title.Interpreter = INTERPRETER;
+    faxes(i).FontName = FONT;
     grid on;
     cols = ["black","red","blue","orange"];
     for j = 1:length(faxes(i).Children)
@@ -40,7 +43,7 @@ for i = 1:length(faxes)
                 %Font sizes
                 temp(i).FontSize = 11;
                 % faxes.FontWeight = 'bold';
-                temp(i).FontName = 'Book Antiqua';
+                temp(i).FontName = FONT;
         end
     end
     
