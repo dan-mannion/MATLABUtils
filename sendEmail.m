@@ -1,4 +1,4 @@
-function sendEmail(subject, message, to)
+function sendEmail(subject, message, to, attach)
 %SENDEMAIL (recipiant, subject, message) Sends a email via desktoip Outlook
 %application. Uses the default profile. If no recipiant set then sends to daniel.mannion.13 by default. 
 if(~ispc())%Quit if not pc
@@ -14,6 +14,9 @@ mail = h.CreateItem('olMail');
 mail.Subject = subject;
 mail.To = to;
 mail.Body = message;
+if exist('attach','var')
+   mail.Attachments.Add(strcat(pwd,'\',attach)); 
+end
 
 mail.Send;
 h.release;
