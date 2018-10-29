@@ -7,8 +7,10 @@ for m = 0:floor(delay)-1
     if(mod(m, 5)==0)
       fprintf('\nWaiting:\t%d/%d mins\n',m, floor(delay));
     end
-   pause(60);   
+   for i = 1:60/2
+   pause(2);   
    fprintf('#',m, floor(delay));
+   end
 end
 fprintf('\n');
 end
