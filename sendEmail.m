@@ -15,7 +15,7 @@ mail.Subject = subject;
 mail.To = to;
 mail.Body = message;
 if exist('attach','var')
-   mail.Attachments.Add(strcat(pwd,'\',attach)); 
+   mail.Attachments.Add(char(strcat(pwd,'\',attach))); 
 end
 
 mail.Send;
