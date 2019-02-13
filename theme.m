@@ -1,4 +1,7 @@
-function theme(fh)
+function theme(fh, cols)
+if(~exist('cols','var'))
+    cols = ["black","red","blue","orange"];
+end
 FONT='Trebuchet';
 INTERPRETER='tex';
 faxes = [];
@@ -28,16 +31,24 @@ for i = 1:length(faxes)
     faxes(i).Title.Interpreter = INTERPRETER;
     faxes(i).FontName = FONT;
     grid on;
-    cols = ["black","red","blue","orange"];
+    
     for j = 1:length(faxes(i).Children)
         temp = faxes(i).Children(j);
         switch class(temp)
             case  'matlab.graphics.chart.primitive.Line'
-                temp.Color = char(cols(j));
+                if(isa(cols(j),'char'))
+                    temp.Color = char(cols(j));
+                else
+                    temp.Color = cols(j,:);
+                end
                 temp.LineWidth = 1.2;
             case 'matlab.graphics.chart.primitive.Histogram'
                 h=faxes(i).Children(j);
-                h.FaceColor = char(cols(j));
+                if(isa(cols(j),'char'))
+                    h.FaceColor = char(cols(j));
+                else
+                     h.FaceColor = cols(j,:);
+                end
                 
             case 'matlab.graphics.primitive.Text'
                 %Font sizes
