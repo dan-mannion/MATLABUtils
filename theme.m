@@ -1,6 +1,6 @@
 function theme(fh, cols)
 if(~exist('cols','var'))
-    cols = ["black","red","blue","orange"];
+    cols = ['k','r','b','o'];
 end
 FONT='Trebuchet';
 INTERPRETER='tex';
@@ -42,6 +42,8 @@ for i = 1:length(faxes)
                     temp.Color = cols(j,:);
                 end
                 temp.LineWidth = 1.2;
+                temp.MarkerSize = 9;
+                
             case 'matlab.graphics.chart.primitive.Histogram'
                 h=faxes(i).Children(j);
                 if(isa(cols(j),'char'))
